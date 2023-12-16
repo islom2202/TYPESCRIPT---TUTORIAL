@@ -1,4 +1,4 @@
-# What I should leanr from this TypeScript tutorial:
+# What I should learn from this TypeScript tutorial:
 1. What & Why ?
 2. Environment Setup
 3. Variable declarations
@@ -69,7 +69,7 @@ tsc filename --watch
  lastname = "Saidzoda" // this is wrong ⨉
  ~~~
 
- ## 4. Variable types (typesboolean, number, string, null, undefined)
+ ## 4. Variable types (boolean, number, string, null, undefined, array)
  in typescript we need to define data type of the variable followed by ":"
  ~~~
  let isCompleted: boolean = true;
@@ -87,3 +87,45 @@ tsc filename --watch
   ~~~
   let name: string = "Islom";
   name. // type this and witness it yourself
+~~~
+  #### 4.1 'null, undefined'
+   both are subtypes of all other types.
+  ~~~
+  let n: null = null;
+  let u: undefined = undefined;
+  ~~~
+  because they are not of use on their own , we use them usually as subtypes:
+  ~~~
+  /////////////////////
+  ~~~
+  #### 4.2 Array type:
+  There are two ways to add array types with fixed types in typescript and there is no any advantage of one over another:
+  ~~~
+  let list1: number[] = [1, 2, 3]; // first way
+  let list2: Array<string> = ['islom', 'Dilnoza'] // second way
+  ~~~
+  #### 4.3 Tuples 
+  are also ``fixed`` types  of arrays (but with predefined types):
+  ~~~
+  let tuple: [number, string] = [1, 'islom']
+  let tuple: [number, string] = [1, 'islom', 2] // ⨉
+  let tuple: [number, string] = ['islom', 1] // ⨉
+  ~~~
+  #### 4.4 Enums
+  ~~~
+  ////////////////////////
+  ~~~
+  #### 4.5 **'any'**
+  We can assign any values to it:
+  ~~~
+  let nickname: any = "Julia"
+  nickname = 18
+  console.log(nickname);
+  ~~~
+  But the problem is that, it does not throw any error:
+  ~~~
+   let nickname: any = "Julia"
+   nickname = 18
+   nickname()
+   nickname.toUpperCase()
+  ~~~
