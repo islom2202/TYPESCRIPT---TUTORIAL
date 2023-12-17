@@ -94,9 +94,9 @@ tsc filename --watch
   let n: null = null;
   let u: undefined = undefined;
   ~~~
-  because they are not of use on their own , we use them usually as subtypes:
+  in typescript we cannot reassign undefined or null, therefore we use ``"|"`` to redefine the type in advance:
   ~~~
-  /////////////////////
+  let myFriend: undefined | string;
   ~~~
   #### 4.2 Array type:
   There are two ways to add array types with fixed types in typescript and there is no any advantage of one over another:
@@ -111,10 +111,40 @@ tsc filename --watch
   let tuple: [number, string] = [1, 'islom', 2] // ⨉
   let tuple: [number, string] = ['islom', 1] // ⨉
   ~~~
-  #### 4.4 Enums
-  ~~~
-  ////////////////////////
-  ~~~
+  #### 4.4 Enums (numberic, string and heterogeneous enums)
+  Enums are perfect way to write readible set of named constants:
+
+  1. **Number-based enums**, where each member is assigned an incrementing number. By default, the first member is assigned the value 0, and each subsequent member gets the next number:
+      ~~~
+      enum Direction {
+      Up = 1,
+      Down,
+      Left,
+      Right,
+      }
+      const directionAsNumber: number = Direction.Up;
+      console.log(directionAsNumber); // 1
+      ~~~
+  2. **String Enums**: These are enums with string values instead of numbers. String enums are more readable and can help avoid confusion when working with numbers that have no clear meaning:
+      ~~~
+      enum Direction {
+      Up = 'Up',
+      Down = 'Down',
+      Left = 'Left',
+      Right = 'Right'
+      }
+      const direction: Direction = Direction.Up;
+      console.log(direction); // "Up"
+      ~~~
+  3. **Heterogeneous Enums:** These enums can mix numeric and string values. However, this type of enum is used sparingly as it has few applications and is more limited:
+      ~~~
+        enum Direction {
+        Up = 1,
+        Down = 'Down',
+        Left = 'Left',
+        Right = 4
+        }
+      ~~~
   #### 4.5 **'any'**
   We can assign any values to it:
   ~~~

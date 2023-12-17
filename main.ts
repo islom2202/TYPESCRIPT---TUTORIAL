@@ -23,18 +23,41 @@ console.log(sentence);
 let n: null = null;
 let u: undefined = undefined;
 
-// let myFriend: string = undefined;
-// let isNew: boolean = null;
+let myFriend: undefined | string;
+let isNew: null | {"name": string};
+isNew = {"name": 'islom'}
+myFriend = "Neka"
+console.log(myFriend);
+
 
 // array type
 let list1: string[] = ['banana', 'apple']
 let list2: Array<number> = [1, 3]
 
+// tuples
 let tuple: [number, string] = [1, "islom"]
-
- let nickname: any = "Julia"
- nickname = 18
- nickname()
- nickname.toUpperCase()
- console.log(nickname);
+// any
+let nickname: any = "Julia"
+nickname = 18
+console.log(nickname);
  
+ // numeric enums
+//  enum Direction {
+//    Up = 1,
+//    Down,
+//    Left,
+//    Right,
+//  }
+//  console.log(Direction.Up);
+ // string enums
+ enum Direction {
+  Up,
+  Down,
+  Left,
+  Right
+}
+
+const direction: Direction = Direction.Up;
+const directionAsNumber: number = Direction.Up;
+console.log(direction); // "Up"
+console.log(directionAsNumber); // 0
