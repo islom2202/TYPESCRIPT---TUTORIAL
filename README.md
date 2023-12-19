@@ -152,10 +152,30 @@ tsc filename --watch
   nickname = 18
   console.log(nickname);
   ~~~
-  But the problem is that, it does not throw any error:
+  But the problem is that, it does not throw any error in a lot of cases:
   ~~~
    let nickname: any = "Julia"
-   nickname = 18
-   nickname()
-   nickname.toUpperCase()
+   nickname() // although it is not a function and should throw an error , but it is not
   ~~~
+  #### 4.7 **'unkown'** - the best alternative of any because it throws an error
+  ~~~
+  let name: unknown = 'islom'
+  console.log(name.toUpperCase()) // ⨉ name is of a type 'unknown'
+  name() // ⨉ name is of a type 'unknown'
+  ~~~
+  You may say, but why for 'name.toUpperCase()' it throws an error. For this we have to define a type as we use it:
+  ~~~
+  let name: unknown = 'string';
+  console.log((name as string).toUpperCase()) // STRING
+  name() // ⨉ name is of a type 'unknown'
+  ~~~
+
+## 5. Functions
+In Typescript **functions parameters' types** are defined inside parameter's paranthesis and **function return type** defined after paranthesis:
+~~~
+const capitalize = (str:string, num:number) :string => str.slice(0, 1).toUpperCase()+str.slice(1)+num;
+
+console.log(capitalize('dilnoza', 2002)); // Dilnoza2002
+~~~
+#### 5.1 Optional parameters
+- **should** be defined after required parameters

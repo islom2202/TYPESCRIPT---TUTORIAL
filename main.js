@@ -2,53 +2,58 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var message = 'Hello world!';
 console.log(message);
-// Variable declarations
-var name;
-name = "islomjon";
-console.log(name);
-var lastname = "Saidaliev";
-var lastname = "Saidzoda";
-console.log(lastname);
-// Variable types
-var isCompleted = true;
-console.log(isCompleted);
-var myBeloved = "Dilnoza";
-var sentence = "my love is ".concat(myBeloved, ", who captured my heart");
-console.log(sentence);
-// null & undefined
-var n = null;
-var u = undefined;
-var myFriend;
-var isNew;
-isNew = { "name": 'islom' };
-myFriend = "Neka";
-console.log(myFriend);
-// array type
-var list1 = ['banana', 'apple'];
-var list2 = [1, 3];
-// tuples
-var tuple = [1, "islom"];
-// any
-var nickname = "Julia";
-nickname = 18;
-console.log(nickname);
-// numeric enums
+// // Variable declarations
+// let name;
+// name = "islomjon"
+// console.log(name);
+// var lastname = "Saidaliev"
+// var lastname = "Saidzoda"
+// console.log(lastname);
+// // Variable types
+// let isCompleted: boolean = true;
+// console.log(isCompleted);
+// let myBeloved: string = "Dilnoza";
+// let sentence: string = `my love is ${myBeloved}, who captured my heart`
+// console.log(sentence);
+// // null & undefined
+// let n: null = null;
+// let u: undefined = undefined;
+// let myFriend: undefined | string;
+// let isNew: null | {"name": string};
+// isNew = {"name": 'islom'}
+// myFriend = "Neka"
+// console.log(myFriend);
+// // array type
+// let list1: string[] = ['banana', 'apple']
+// let list2: Array<number> = [1, 3]
+// // tuples
+// let tuple: [number, string] = [1, "islom"]
+// // any
+// let nickname: any = "Julia"
+// nickname = 18
+// console.log(nickname);
+//  // numeric enums
+// //  enum Direction {
+// //    Up = 1,
+// //    Down,
+// //    Left,
+// //    Right,
+// //  }
+// //  console.log(Direction.Up);
+//  // string enums
 //  enum Direction {
-//    Up = 1,
-//    Down,
-//    Left,
-//    Right,
-//  }
-//  console.log(Direction.Up);
-// string enums
-var Direction;
-(function (Direction) {
-    Direction[Direction["Up"] = 0] = "Up";
-    Direction[Direction["Down"] = 1] = "Down";
-    Direction[Direction["Left"] = 2] = "Left";
-    Direction[Direction["Right"] = 3] = "Right";
-})(Direction || (Direction = {}));
-var direction = Direction.Up;
-var directionAsNumber = Direction.Up;
-console.log(direction); // "Up"
-console.log(directionAsNumber); // 0
+//   Up,
+//   Down,
+//   Left,
+//   Right
+// }
+// const direction: Direction = Direction.Up;
+// const directionAsNumber: number = Direction.Up;
+// console.log(direction); // "Up"
+// console.log(directionAsNumber); // 0
+// // unknown
+// let name: unknown = 'string';
+// console.log((name as string).toUpperCase())
+// functions
+var capitalize = function (str, num) { return str.slice(0, 1).toUpperCase() + str.slice(1) + num; };
+console.log(capitalize('dilnoza', 2002));
