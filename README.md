@@ -178,4 +178,34 @@ const capitalize = (str:string, num:number) :string => str.slice(0, 1).toUpperCa
 console.log(capitalize('dilnoza', 2002)); // Dilnoza2002
 ~~~
 #### 5.1 Optional parameters
-- **should** be defined after required parameters
+ should be defined after required parameters using ``"?"``:
+~~~
+const capitalize = (str:string, num?:number) :string =>
+{
+ if(num){
+    return str.slice(0, 1).toUpperCase() + str.slice(1) + num
+ }
+ else{
+  return str.slice(0, 1).toUpperCase() + str.slice(1) + 2002
+}
+}
+console.log(capitalize('dilnoza', 2002));
+~~~
+
+#### 5.2 Assgning the value to parameter:
+~~~
+const add = (num1:number, num2:number = 10) :number => num1 + num2;
+add(5) // returns 15
+~~~
+
+## 6. Interface 
+in typescript we define object like that:
+~~~
+const fullName = (obj:{firstname: string, lastname:string}) :string => `${obj.firstname} ${obj.lastname}`
+let myObj = {
+  firstname: 'Muhaiyo',
+  lastname: 'Kamolova'
+}
+console.log(fullName(myObj))
+~~~
+But imagine if we had to many properties in object then it could be very difficult to define every property as a function parameter. Here comes ``interface``:

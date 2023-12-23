@@ -55,5 +55,20 @@ console.log(message);
 // let name: unknown = 'string';
 // console.log((name as string).toUpperCase())
 // functions
-var capitalize = function (str, num) { return str.slice(0, 1).toUpperCase() + str.slice(1) + num; };
-console.log(capitalize('dilnoza', 2002));
+// const capitalize = (str:string, num?:number) :string =>
+// {
+//  if(num){
+//     return str.slice(0, 1).toUpperCase() + str.slice(1) + num
+//  }
+//  else{
+//   return str.slice(0, 1).toUpperCase() + str.slice(1) + 2002
+// }
+// }
+// console.log(capitalize('dilnoza', 2002));
+// Interface
+var fullName = function (obj) { return "".concat(obj.firstname, " ").concat(obj.lastname); };
+var myObj = {
+    firstname: 'Muhaiyo',
+    lastname: 'Kamolova'
+};
+console.log(fullName(myObj));

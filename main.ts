@@ -69,9 +69,23 @@ console.log(message);
 
 
 // functions
-const capitalize = (str:string, num:number) :string => str.slice(0, 1).toUpperCase()+str.slice(1)+num;
-console.log(capitalize('dilnoza', 2002));
+// const capitalize = (str:string, num?:number) :string =>
+// {
+//  if(num){
+//     return str.slice(0, 1).toUpperCase() + str.slice(1) + num
+//  }
+//  else{
+//   return str.slice(0, 1).toUpperCase() + str.slice(1) + 2002
+// }
+// }
+// console.log(capitalize('dilnoza', 2002));
  
 
+// Interface
 
-
+const fullName = (obj:{firstname: string, lastname:string}) :string => `${obj.firstname} ${obj.lastname}`
+let myObj = {
+  firstname: 'Muhaiyo',
+  lastname: 'Kamolova'
+}
+console.log(fullName(myObj))
