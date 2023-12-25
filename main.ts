@@ -1,6 +1,4 @@
 export {};
-let message = 'Hello world!';
-console.log(message);
 
 // // Variable declarations
 // let name;
@@ -81,11 +79,33 @@ console.log(message);
 // console.log(capitalize('dilnoza', 2002));
  
 
-// Interface
+// // Interface
 
-const fullName = (obj:{firstname: string, lastname:string}) :string => `${obj.firstname} ${obj.lastname}`
-let myObj = {
-  firstname: 'Muhaiyo',
-  lastname: 'Kamolova'
+// const fullName = (obj: myObj): string =>
+//   obj.firstname
+//     ? `${obj.firstname} ${obj.lastname}`
+//     : `Muhaiyo ${obj.lastname}`
+// interface myObj {
+//   firstname?: string,
+//   lastname: string
+// }
+// let obj = {
+//   firstname: 'Muhaiyo',
+//   lastname: 'Kamolova'
+// }
+// console.log(fullName(obj))
+
+// Class
+class  Employees {
+  employeeName: string;
+  constructor(name: string){
+    this.employeeName = name;
+  }
+  greet(){
+    console.log(`Good morning ${this.employeeName}`);
+  }
 }
-console.log(fullName(myObj))
+
+let employee1 = new Employees('Islomcha')
+console.log(employee1.employeeName);
+employee1.greet();

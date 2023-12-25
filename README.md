@@ -209,3 +209,48 @@ let myObj = {
 console.log(fullName(myObj))
 ~~~
 But imagine if we had to many properties in object then it could be very difficult to define every property as a function parameter. Here comes ``interface``:
+~~~
+const fullName = (obj: myObj) :string => `${obj.firstname} ${obj.lastname}`
+interface myObj {
+  firstname: string,
+  lastname: string
+}
+let obj = {
+  firstname: 'Muhaiyo',
+  lastname: 'Kamolova'
+}
+console.log(fullName(obj))
+~~~
+To make propert **optional** using ``interface`` we do in follwing syntax inside interface syntax:
+~~~
+const fullName = (obj: myObj): string =>
+  obj.firstname
+    ? `${obj.firstname} ${obj.lastname}`
+    : `Muhaiyo ${obj.lastname}`
+interface myObj {
+  firstname?: string, // we add question mark
+  lastname: string
+}
+let obj = {
+  lastname: 'Kamolova'
+}
+console.log(fullName(obj))
+~~~
+
+## 7. Class
+Tpyescript support to use object oriented class based approach ( which cannot be found in javascript - I think):
+~~~
+class  Employees {
+  employeeName: string;
+  constructor(name: string){
+    this.employeeName = name;
+  }
+  greet(){
+    console.log(`Good morning ${this.employeeName}`);
+  }
+}
+
+let employee1 = new Employees('Islomcha')
+console.log(employee1.employeeName);
+employee1.greet();
+~~~

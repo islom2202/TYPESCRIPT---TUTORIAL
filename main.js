@@ -1,7 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var message = 'Hello world!';
-console.log(message);
 // // Variable declarations
 // let name;
 // name = "islomjon"
@@ -65,10 +63,30 @@ console.log(message);
 // }
 // }
 // console.log(capitalize('dilnoza', 2002));
-// Interface
-var fullName = function (obj) { return "".concat(obj.firstname, " ").concat(obj.lastname); };
-var myObj = {
-    firstname: 'Muhaiyo',
-    lastname: 'Kamolova'
-};
-console.log(fullName(myObj));
+// // Interface
+// const fullName = (obj: myObj): string =>
+//   obj.firstname
+//     ? `${obj.firstname} ${obj.lastname}`
+//     : `Muhaiyo ${obj.lastname}`
+// interface myObj {
+//   firstname?: string,
+//   lastname: string
+// }
+// let obj = {
+//   firstname: 'Muhaiyo',
+//   lastname: 'Kamolova'
+// }
+// console.log(fullName(obj))
+// Class
+var Employees = /** @class */ (function () {
+    function Employees(name) {
+        this.employeeName = name;
+    }
+    Employees.prototype.greet = function () {
+        console.log("Good morning ".concat(this.employeeName));
+    };
+    return Employees;
+}());
+var employee1 = new Employees('Islomcha');
+console.log(employee1.employeeName);
+employee1.greet();
