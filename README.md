@@ -251,6 +251,111 @@ class  Employees {
 }
 
 let employee1 = new Employees('Islomcha')
-console.log(employee1.employeeName);
-employee1.greet();
+console.log(employee1.employeeName); // Islomcha
+employee1.greet(); // Good morning Islomcha
 ~~~
+'**constructor**' is used for making a new instance of class i.e. we cannot create a new instance (**new** Employees('Islomcha')), without constructor. Just like this:
+  ~~~
+  let employee1 = new Employees('Islomcha')
+  ~~~
+'**extends**' is used to get access to another class', not values but syntax and '**super()**' is used to get access to what is inside the constructor of accessed class. It makes it easier not to write identical classes repeatedly:
+ ~~~
+ class  Employees {
+    employeeName: string;
+      constructor(name: string){
+        this.employeeName = name;
+      }
+    greet(){
+      console.log(`Hello ${this.employeeName}`);
+    }
+  }
+new Employees('Islomcha')
+class Manager extends Employees{
+  constructor(name: string){
+      super(name)
+  }
+  delegateWork(){
+   console.log(`${this.employeeName} is delegating work`);
+  }
+}
+let manager =  new Manager('Abdullocha')
+manager.delegateWork(); // Abdullocha is delegating work
+manager.greet(); // Hello Abdullocha
+~~~
+## 8. Access Modifiers
+are keys that set accessibility of properties and methods in a class.
+1. **public** by default classes are public, but we can still define that:
+  ~~~
+  class Employees {
+    public employeeName: string // here we define it
+    constructor(name: string) {
+      this.employeeName = name
+    }
+    greet() {
+      console.log(`Hello ${this.employeeName}`)
+    }
+  }
+  new Employees('Islomcha')
+  class Manager extends Employees{
+    constructor(name: string){
+        super(name)
+    }
+    delegateWork(){
+    console.log(`${this.employeeName} is delegating work`); // here we get access outside of class
+    }
+  }
+  let manager =  new Manager('Abdullocha')
+  manager.delegateWork();
+  manager.greet()
+~~~
+2. **private** the property or method can be accessed only inside a containing class (2 errors):
+~~~
+class Employees {
+  private employeeName: string // here we define it
+  constructor(name: string) {
+    this.employeeName = name
+  }
+  greet() {
+    console.log(`Hello ${this.employeeName}`)
+  }
+}
+let employee = new Employees('Islomcha')
+console.log(employee.employeeName); // Property 'employeeName' is private and only accessible within class 'Employees' ⨉
+class Manager extends Employees{
+  constructor(name: string){
+      super(name)
+  }
+  delegateWork(){
+   console.log(`${this.employeeName} is delegating work`); // Property 'employeeName' is private and only accessible within class 'Employees' ⨉
+  }
+}
+let manager =  new Manager('Abdullocha')
+manager.delegateWork();
+manager.greet()
+~~~
+3. **protected** access modifier makes properties or methods accessible to a class nd its subclasses, but not outside of them  (1 error):
+~~~
+class Employees {
+  protected employeeName: string // here we define it
+  constructor(name: string) {
+    this.employeeName = name
+  }
+  greet() {
+    console.log(`Hello ${this.employeeName}`)
+  }
+}
+let employee = new Employees('Islomcha')
+console.log(employee.employeeName); // Property 'employeeName' is protected and only accessible within class 'Employees' and its subclasses. ⨉
+
+class Manager extends Employees{
+  constructor(name: string){
+      super(name)
+  }
+  delegateWork(){
+   console.log(`${this.employeeName} is delegating work`);
+  }
+}
+let manager =  new Manager('Abdullocha')
+manager.delegateWork();
+manager.greet()
+~~

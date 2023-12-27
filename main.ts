@@ -96,16 +96,26 @@ export {};
 // console.log(fullName(obj))
 
 // Class
-class  Employees {
-  employeeName: string;
-  constructor(name: string){
-    this.employeeName = name;
+class Employees {
+  public employeeName: string // here we define it
+  constructor(name: string) {
+    this.employeeName = name
   }
-  greet(){
-    console.log(`Good morning ${this.employeeName}`);
+  greet() {
+    console.log(`Hello ${this.employeeName}`)
   }
 }
+let employee = new Employees('Islomcha')
+console.log(employee.employeeName); // Property 'employeeName' is protected and only accessible within class 'Employees' and its subclasses. ⨉
 
-let employee1 = new Employees('Islomcha')
-console.log(employee1.employeeName);
-employee1.greet();
+class Manager extends Employees{
+  constructor(name: string){
+      super(name)
+  }
+  delegateWork(){
+   console.log(`${this.employeeName} is delegating work`);
+  }
+}
+let manager =  new Manager('Abdullocha')
+manager.delegateWork();
+manager.greet()

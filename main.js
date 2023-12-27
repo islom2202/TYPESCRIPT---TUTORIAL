@@ -1,4 +1,19 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
 // // Variable declarations
 // let name;
@@ -83,10 +98,22 @@ var Employees = /** @class */ (function () {
         this.employeeName = name;
     }
     Employees.prototype.greet = function () {
-        console.log("Good morning ".concat(this.employeeName));
+        console.log("Hello ".concat(this.employeeName));
     };
     return Employees;
 }());
-var employee1 = new Employees('Islomcha');
-console.log(employee1.employeeName);
-employee1.greet();
+var employee = new Employees('Islomcha');
+console.log(employee.employeeName); // Property 'employeeName' is protected and only accessible within class 'Employees' and its subclasses. ⨉
+var Manager = /** @class */ (function (_super) {
+    __extends(Manager, _super);
+    function Manager(name) {
+        return _super.call(this, name) || this;
+    }
+    Manager.prototype.delegateWork = function () {
+        console.log("".concat(this.employeeName, " is delegating work"));
+    };
+    return Manager;
+}(Employees));
+var manager = new Manager('Abdullocha');
+manager.delegateWork();
+manager.greet();
