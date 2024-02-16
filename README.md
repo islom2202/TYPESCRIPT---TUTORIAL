@@ -211,7 +211,7 @@ console.log(fullName(myObj))
 But imagine if we had to many properties in object then it could be very difficult to define every property as a function parameter. Here comes ``interface``:
 ~~~
 const fullName = (obj: myObj) :string => `${obj.firstname} ${obj.lastname}`
-interface myObj {
+interface myObj:obj {
   firstname: string,
   lastname: string
 }
